@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>$$[RandStr]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body onload="begin_onload()" contentEditable="true">
+<a id="next">Go</a><br/>
+  <script>
+    var cur_uri = window.location.href;
+    var next = cur_uri.replace(/\d.html/g, function my(x){return (parseInt(x.split(\".\")[0])+1)%9 + \".\"+ x.split(\".\")[1];});
+    setTimeout( function(){ window.location.href = next;}, 4000);
+  </script>
+<script>
+</body>
+
+</html>

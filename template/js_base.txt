@@ -1,0 +1,35 @@
+<html>
+  <style type='text/css'>
+    $$[dom_style_def]
+  </style> 
+  <body onload='fuzzing()'> 
+    <script>
+      $$[js_helper_statement]
+      
+      $$[js_helper_atomic]
+    </script>
+    
+    <script>
+      ####[global_var_init]
+    </script>
+    
+    <script>
+      function fuzzing(){
+      
+        $$[js_init_statement]
+        
+        $$[static_init]
+        
+        ####[runtime_init]
+        
+        $$[gl_web_api??try_catch==1&&full==1]
+        
+        $$[js_web_api??try_catch==1&&full==1&&jjjj==1]
+        
+      }
+    </script>
+    
+    $$[dom_tree??root==div]
+    
+  </body>
+</html>

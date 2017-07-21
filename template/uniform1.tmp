@@ -1,0 +1,63 @@
+<html>
+<body onload="start()">
+ <a id="next">Go</a><br/>
+ <div id="">
+  <canvas id="webglView" width="$$[i9]$$[i9]$$[i9]" height="$$[i9]$$[i9]$$[i9]">
+    Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
+  </canvas>
+ </div>
+  <script src='webgl-utils.js'></script>
+  <script src='sylvester.js'></script>
+ <script>
+    var cur = window.location.href;
+    var next = $$[next_url];
+    //setTimeout( function(){ window.location.href = next;}, 5000);
+    var webgl = null;
+    var gl_vars = [];
+    var gl_uniforms = {};
+    var gl_buffer = null;
+    var g_texture = null;
+    var g_ct = null;
+
+    $$[atomic_init_Texture_func]
+    $$[help_get_buffer]
+ </script>
+ <script>
+    function renderWebGL() {
+     document.getElementById("next").href=next;
+     var canvas = document.getElementById("webglView");
+     webgl = setupWebGL(canvas); 
+     g_ct  =  webgl.getExtension("WEBKIT_WEBGL_compressed_texture_s3tc");
+     gl_buffer = webgl.createBuffer();
+     createTexture(webgl);
+     var program = createProgramFromScripts(webgl, ["2d-vertex-shader", "2d-fragment-shader"]);
+     webgl.useProgram(program);
+
+     var setters = createAttributeSetters(webgl, program);
+     var attribs = {}
+     for (key in gl_vars) { attribs[gl_vars[key]] = {buffer: gl_buffer, numComponents: 2}; }
+     setAttributes(setters, attribs);
+
+     var uniformSetters = createUniformSetters(webgl, program);
+     setUniforms(uniformSetters, gl_uniforms);
+
+     webgl.$$[api_any];
+     webgl.$$[api_any];
+     webgl.$$[api_any];
+     webgl.$$[api_any];
+
+     webgl.$$[api_any];
+     webgl.$$[api_any];
+     webgl.$$[api_any];
+
+    }
+  </script>
+  $$[shader-fragment]
+  $$[shader-vertex]
+  <script>
+  function start(){
+   renderWebGL();
+  }
+  </script>
+</body>
+</html>
